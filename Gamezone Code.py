@@ -1,6 +1,6 @@
 import psycopg2
 import os
-import getpass  # Untuk input password yang lebih aman
+#import getpass  # Untuk input password yang lebih aman
 import pandas as pd
 import datetime
 from datetime import timedelta
@@ -8,10 +8,10 @@ from datetime import timedelta
 def connect_db():
     try:
         conn = psycopg2.connect(
-            host="localhost",
-            database="GAMEZONE PALING FIX",
+            host="Localhost",
+            database="Gamezone PS",
             user="postgres",
-            password="1068"
+            password="warungijo"
         )
         cur = conn.cursor()
         return conn, cur

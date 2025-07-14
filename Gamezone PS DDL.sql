@@ -1,7 +1,4 @@
-
--- ========== CREATE ENUM TYPES ==========
-CREATE TYPE status_konsol AS ENUM ('0', '1');
-CREATE TYPE transaksi_status AS ENUM ('paid', 'pending', 'canceled');
+-- ========== DDL GAMEZONE ==========
 
 -- ========== CREATE TABLES ==========
 CREATE TABLE konsol 
@@ -54,7 +51,7 @@ CREATE TABLE transaksi
      tanggal_dan_waktu_mulai                TIMESTAMP NOT NULL, 
      users_username                         VARCHAR(20) NOT NULL, 
      users_no_telepon                       VARCHAR(13) NOT NULL, 
-     status_transaksi                       VARCHAR (10) NOT NULL DEFAULT 'pending',
+     status_transaksi                       VARCHAR(10) NOT NULL DEFAULT 'pending',
      no_rekening                            VARCHAR(20) NOT NULL, 
      nama_pemilik_rekening                  VARCHAR(20) NOT NULL, 
      konsol_konsol_ID                       INTEGER NOT NULL, 
@@ -83,6 +80,10 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+-- ========== CREATE ENUM TYPES ==========
+CREATE TYPE status_konsol AS ENUM ('0', '1');
+CREATE TYPE transaksi_status AS ENUM ('paid', 'pending', 'canceled');
 
 -- ========== CREATE TRIGGERS ==========
 CREATE TRIGGER trg_subtotal_insert
